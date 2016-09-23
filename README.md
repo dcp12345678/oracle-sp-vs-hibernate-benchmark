@@ -29,14 +29,14 @@ This is a maven project and it uses the Oracle JDBC drivers from the maven repos
 * There are 3 tests: two tests use stored procedures and one test uses Hibernate.
 * In stored procedure approach #1, it uses the my_pkg.get_users stored procedure to get all users, roles and authorities back in one query.
 * In stored procedure approach #2, it uses the my_pkg.get_users, my_pkg.get_roles and my_pkg.get_authorities stored procedures.
-     * The my_pkg.get_users stored procedure gets all the users
+     * The my_pkg.get_users stored procedure gets all the users that match the search criteria
      * the my_pkg_.get_roles is called to get the roles for each user
      * the my_pkg.get_authorities is called to get the authorities for each role.
 * For the Hibernate test, note that the test loops over all the roles and authorities for each user to force Hibernate to fetch them from the DB. This is done to be consistent with the stored procedure approach.
 * After you run the tests, you can see the test results listed on how long each approach took.
 
 ### Generating new test data
-* If you would like to generate new test data (test data is generated randomly), the easiest way is to just drop the schema and recreate it, then re-run the load_test_data.sql script. You can also delete the data manually, but that can take a while since it will generate a lot of rollback data. Here are the scripts to run for dropping the schema, re-creating it, and loading new test data (these scripts are in src/main
+* If you would like to generate new test data (test data is generated randomly), the easiest way is to just drop the schema and recreate it, then re-run the load_test_data.sql script. You can also delete the data manually, but that can take a while since it will generate a lot of rollback data. Here are the scripts to run for dropping the schema, re-creating it, and loading new test data.
     * src/main/db/oracle/drop_objects.sql
     * src/main/db/oracle/ddl.sql
     * src/main/db/oracle/load_test_data.sql
@@ -56,7 +56,7 @@ This is a maven project and it uses the Oracle JDBC drivers from the maven repos
     * `Total time for stored procedures approach #2: 00:00:11.225`
 
 ### Conclusions
-* This project is not meant to advocate using Hibernate over stored procedures, as there are many other considerations besides performance. Where stored procedures really excel is **keeping the data logic close to the data**, and allowing that logic to be reused **over and over again** by different applications. Applications tend to change over time, be re-written using newer technologies, be developed to mobile platforms, etc, but the data is really the cornerstone of these applications. As Tom Kyte [says](https://asktom.oracle.com/pls/asktom/f%3Fp%3D100:11:0::::P11_QUESTION_ID:2232358800346144240), "application come, applications go, data lives forever".
+* This project is not meant to advocate using Hibernate over stored procedures, as there are many other considerations besides performance. Where stored procedures really excel is **keeping the data logic close to the data**, and allowing that logic to be reused **over and over again** by different applications. Applications tend to change over time, be re-written using newer technologies, be developed for mobile platforms, etc, but the data is really the cornerstone of these applications. As Tom Kyte [says](https://asktom.oracle.com/pls/asktom/f%3Fp%3D100:11:0::::P11_QUESTION_ID:2232358800346144240), "application come, applications go, data lives forever".
 * Another key consideration is that if you have several operations to perform in a single transaction, you can bundle those operations into a single stored procedure, which only requires a single round trip to the database from the client. With Hibernate, you would have to make multiple round trips to the database to perform those same operations. This is one example where performance can really be optimized with stored procedures.
 
 
