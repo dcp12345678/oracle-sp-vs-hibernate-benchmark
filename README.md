@@ -57,7 +57,7 @@ This is a maven project and it uses the Oracle JDBC drivers from the maven repos
 
 ### Conclusions
 * This project is not meant to advocate using Hibernate over stored procedures, as there are many other considerations besides performance. Where stored procedures really excel is **keeping the data logic close to the data**, and allowing that logic to be reused **over and over again** by different applications. Applications tend to change over time, be re-written using newer technologies, be developed to mobile platforms, etc, but the data is really the cornerstone of these applications. As Tom Kyte [says](https://asktom.oracle.com/pls/asktom/f%3Fp%3D100:11:0::::P11_QUESTION_ID:2232358800346144240), "application come, applications go, data lives forever".
-* Another key consideration is that if you have several operations to perform in a single transaction, you can bundle those operations into a single stored procedure, which only requires a single round trip from the client. With Hibernate, you would have to make multiple round trips to the database to perform those same operations. This is one example where performance can really be optimized with stored procedures.
+* Another key consideration is that if you have several operations to perform in a single transaction, you can bundle those operations into a single stored procedure, which only requires a single round trip to the database from the client. With Hibernate, you would have to make multiple round trips to the database to perform those same operations. This is one example where performance can really be optimized with stored procedures.
 
 
 
