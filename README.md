@@ -45,21 +45,17 @@ This is a maven project and it uses the Oracle JDBC drivers from the maven repos
 
 ### Notes on test results
 * The test results on my machine were as follows:
-`
-***********************************************************************
-**** Total time for hibernate:                     00:00:36.885
-**** Total time for stored procedures approach #1: 00:01:21.475
-**** Total time for stored procedures approach #2: 00:00:41.362
-***********************************************************************
+    * ***********************************************************************
+    * **** Total time for hibernate:                     00:00:36.885
+    * **** Total time for stored procedures approach #1: 00:01:21.475
+    * **** Total time for stored procedures approach #2: 00:00:41.362
+    * ***********************************************************************
 `
 * There may be optimizations that can be added to the stored procedures to make them perform faster. I used the approach Tom Kyte recommends [here](https://asktom.oracle.com/pls/apex/f?p=100:11:0::::P11_QUESTION_ID:31335048149752) to ensure that bind variables are always being used in the stored procedures.
 *  I also re-ran the tests modifying the PAGE_SIZE constant in com.mycompany.app.AppTest.java to 200, and found that the times were almost identical.
-`
-***********************************************************************
-**** Total time for hibernate:                     00:00:11.145
-**** Total time for stored procedures approach #1: 00:00:11.474
-**** Total time for stored procedures approach #2: 00:00:11.225
-***********************************************************************
-`
-*
+    * ***********************************************************************
+    * **** Total time for hibernate:                     00:00:11.145
+    * **** Total time for stored procedures approach #1: 00:00:11.474
+    * **** Total time for stored procedures approach #2: 00:00:11.225
+    * ***********************************************************************
 
