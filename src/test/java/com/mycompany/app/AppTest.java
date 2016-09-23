@@ -81,11 +81,11 @@ public class AppTest {
      */
     @AfterClass
     public static void tearDownFixture() throws Exception {
-        System.out.println("***********************************************************************");
-        System.out.format("**** Total time for hibernate:                     %s\n", hibernateApproachTime);
-        System.out.format("**** Total time for stored procedures approach #1: %s\n", spApproach1Time);
-        System.out.format("**** Total time for stored procedures approach #2: %s\n", spApproach2Time);
-        System.out.println("***********************************************************************");
+        System.out.println("--------------------------T E S T  R E S U L T S--------------------------------");
+        System.out.format("---- Total time for hibernate:                     %s\n", hibernateApproachTime);
+        System.out.format("---- Total time for stored procedures approach #1: %s\n", spApproach1Time);
+        System.out.format("---- Total time for stored procedures approach #2: %s\n", spApproach2Time);
+        System.out.println("--------------------------------------------------------------------------------");
     }
 
     /**
