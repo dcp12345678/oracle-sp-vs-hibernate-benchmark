@@ -27,7 +27,7 @@ This is a maven project and it uses the Oracle JDBC drivers from the maven repos
 ### Running the tests
 * mvn test
 * There are 3 tests: two tests use stored procedures and one test uses Hibernate.
-* In stored procedure approach #1, it uses the my_pkg.get_users stored procedure to get all users, roles and authorities back in one query.
+* In stored procedure approach #1, it uses the my_pkg.get_users stored procedure to get all users (matching the search criteria), roles and authorities back in one query.
 * In stored procedure approach #2, it uses the my_pkg.get_users, my_pkg.get_roles and my_pkg.get_authorities stored procedures.
      * The my_pkg.get_users stored procedure gets all the users that match the search criteria
      * the my_pkg_.get_roles is called to get the roles for each user
