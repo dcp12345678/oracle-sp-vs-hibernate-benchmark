@@ -11,4 +11,5 @@ Maven 3.2.5 or higher
 
 
 ###Installation instructions
+db setup instructions coming soon.....
 mvn install
