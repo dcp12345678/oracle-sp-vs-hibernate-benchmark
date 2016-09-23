@@ -10,10 +10,10 @@ This is a maven project and it uses the Oracle JDBC drivers from the maven repos
 * Maven 3.2.5 or higher
 
 ###Installation instructions
-* Maven uses the Oracle JDBC drivers, and you will need to follow the instructions on settign up a settings.xml and settings-security.xml located [here](https://blogs.oracle.com/dev2dev/entry/how_to_get_oracle_jdbc#settings).
+* Maven uses the Oracle JDBC drivers, and you will need to follow the instructions on settign up a settings.xml and settings-security.xml. These instructions are located [here](https://blogs.oracle.com/dev2dev/entry/how_to_get_oracle_jdbc#settings).
 * Create a new Oracle user for the tests. You can use the following commands (change testuser to whatever you want):
-    * create user testuser identified by testuser
-    * grant dba to testuser
+    * `create user testuser identified by testuser`
+    * `grant dba to testuser`
 * Login to Oracle using the user you just created and then run the following scripts (these scripts are in src/main/db/oracle)
     * ddl.sql
     * my_pkg.sql
