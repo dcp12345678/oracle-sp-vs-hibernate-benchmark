@@ -1,4 +1,4 @@
-##Hibernate vs Oracle Stored Procedure performance comparison
+## Hibernate vs Oracle Stored Procedure performance comparison
 
 This project compares the performance when fetching data using native PL/SQL Oracle procedures against fetching that
 same data using Hibernate. The tests run against 1,000,000 user records with associated roles and authorities, and they fetch a subset of users matching given search criteria to measure performance. Note that the entire user, role and authority entities are fetched, but they are fetched a page at a time to simulate real world usage, such as an end-user viewing this data on a web page and paging through a grid, for example.
