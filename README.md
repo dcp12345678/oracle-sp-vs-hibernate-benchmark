@@ -5,12 +5,12 @@ same data using Hibernate. The tests run against 1,000,000 user records with ass
 
 This is a maven project and it uses the Oracle JDBC drivers from the maven repository.
 
-###Prerequisites
+### Prerequisites
 * Oracle instance (any recent version 10g or later should be fine) - You can use [Oracle Express Edition](http://www.oracle.com/technetwork/database/database-technologies/express-edition/overview/index.html), which runs on Windows and Linux and is free.
 * Maven 3.2.5 or higher
 * JDK 1.8 or higher (may work on lower versions, but tested against 1.8)
 
-###Installation instructions
+### Installation instructions
 * This project uses the Maven Oracle JDBC drivers, and you will need to follow the instructions on configuring a settings.xml and settings-security.xml. These instructions are located [here](https://blogs.oracle.com/dev2dev/entry/how_to_get_oracle_jdbc#settings).
 * Create a new Oracle user for the tests. You can use the following commands (change testuser to whatever you want):
     * `create user testuser identified by testuser`
@@ -56,7 +56,7 @@ This is a maven project and it uses the Oracle JDBC drivers from the maven repos
     * `Total time for stored procedures approach #2: 00:00:11.225`
 
 ### Conclusions
-* This project is not meant to advocate using Hibernate over stored procedures, as there are many other considerations besides performance. Where stored procedures really excel is **keeping the data logic close to the data**, and allowing that logic to be reused **over and over again** by different applications. Applications tend to change over time, be re-written using newer technologies, be developed for mobile platforms, etc, but the data is really the cornerstone of these applications. As Tom Kyte [says](https://asktom.oracle.com/pls/asktom/f%3Fp%3D100:11:0::::P11_QUESTION_ID:2232358800346144240), "application come, applications go, data lives forever".
+* This project is not meant to advocate using Hibernate over stored procedures, as there are many other considerations besides performance. Where stored procedures really excel is **keeping the data logic close to the data**, and allowing that logic to be reused **over and over again** by different applications. Applications tend to change over time, be re-written using newer technologies, be developed for mobile platforms, etc, but the data is really the cornerstone of these applications. As Tom Kyte [says](https://asktom.oracle.com/pls/asktom/f%3Fp%3D100:11:0::::P11_QUESTION_ID:2232358800346144240), "applications come, applications go, data lives forever".
 * Another key consideration is that if you have several operations to perform in a single transaction, you can bundle those operations into a single stored procedure, which only requires a single round trip to the database from the client. With Hibernate, you would have to make multiple round trips to the database to perform those same operations. This is one example where performance can really be optimized with stored procedures.
 
 
