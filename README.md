@@ -3,7 +3,7 @@
 This project compares the performance when fetching data using native PL/SQL Oracle procedures against fetching that
 same data using Hibernate. The tests run against 1,000,000 user records with associated roles and authorities, and they fetch a subset of users matching given search criteria to measure performance. Note that the entire user, role and authority entities are fetched, but they are fetched a page at a time to simulate real world usage, such as an end-user viewing this data on a web page and paging through a grid, for example.
 
-This is a maven project and it uses the Oracle JDBC drivers from the maven repository.
+This is a maven project, and it uses the Oracle JDBC drivers from the maven repository.
 
 ### Prerequisites
 * Oracle instance (any recent version 10g or later should be fine) - You can use [Oracle Express Edition](http://www.oracle.com/technetwork/database/database-technologies/express-edition/overview/index.html), which runs on Windows and Linux and is free.
